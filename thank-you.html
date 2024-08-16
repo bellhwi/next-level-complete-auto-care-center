@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="You're form has been submitted successfully. I'll get back to you as soon as possible. Thank you!"
+    />
+    <title>Thank you | Next Level Complete Auto Care Center</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/dark.css" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-11193323869"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+
+      gtag('config', 'AW-11193323869')
+    </script>
+    <!-- Event snippet for Contact Form conversion page -->
+    <script>
+      gtag('event', 'conversion', {
+        send_to: 'AW-11193323869/QhJYCN2gmL4ZEN2istkp',
+      })
+    </script>
+  </head>
+  <body>
+    <!-- ============================================ -->
+    <!--                    Hero                      -->
+    <!-- ============================================ -->
+
+    <section id="home" class="thank-you">
+      <div class="cs-container">
+        <div class="cs-content">
+          <h1 class="cs-title">Thank You!</h1>
+          <p class="cs-text">
+            You're form has been submitted successfully. We'll get back to you
+            as soon as possible. In the meantime,
+            <u> please check your junk or spam folder</u>, just in case our
+            response ends up there.
+          </p>
+          <a href="#" class="cs-button-solid" onclick="goBackAndClearForm()"
+            >GO BACK
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <script src="js/script.js"></script>
+    <script>
+      function goBackAndClearForm() {
+        // Check if the document.referrer is not empty and is from your site
+        if (
+          document.referrer &&
+          new URL(document.referrer).hostname === window.location.hostname
+        ) {
+          // Navigate back with a special query parameter to signal form clearing
+          const previousPageUrl = new URL(document.referrer)
+          previousPageUrl.searchParams.set('clearForm', 'true')
+          window.location.href = previousPageUrl.href
+        } else {
+          // Fallback if there's no referrer or it's not from the same site
+          window.history.back()
+        }
+      }
+    </script>
+  </body>
+</html>

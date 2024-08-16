@@ -1,0 +1,86 @@
+@media only screen and (min-width: 0rem) {
+  .about-img {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 64rem) {
+  .about-img {
+    display: block;
+    width: 50%;
+    object-fit: cover;
+  }
+}
+
+@media only screen and (min-width: 0rem) {
+  .mobile-call {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    padding: 2rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+}
+
+@media only screen and (min-width: 64rem) {
+  .mobile-call {
+    display: none;
+  }
+}
+
+.brands {
+  padding: var(--sectionPadding);
+}
+
+.brands .cs-container {
+  width: 100%;
+  max-width: 80rem;
+  margin: auto;
+}
+
+.brands .cs-container .cs-title {
+  margin: 0 auto;
+  width: max-content;
+}
+
+.brands .cs-brand-list .cs-brand-item {
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media only screen and (min-width: 0rem) {
+  .brands .cs-brand-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    padding-left: 0;
+    margin-top: 2rem;
+    gap: 1rem;
+  }
+  .brands .cs-brand-list .cs-brand-item img {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 64rem) {
+  .brands .cs-brand-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    padding-left: 0;
+    gap: 0rem;
+  }
+}

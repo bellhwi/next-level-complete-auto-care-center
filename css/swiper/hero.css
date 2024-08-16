@@ -1,0 +1,20 @@
+.swiper-slide {
+  /* 200px - 300px - leaving extra space for the navigation */
+  padding: clamp(12.5rem, 31.95vw, 18.75rem) 1rem 0;
+  /* 130px - 200px */
+  padding-bottom: clamp(8.125rem, 16.5vw, 12.5rem);
+}
+
+.swiper-pagination {
+  margin-bottom: 4rem !important;
+}
+
+.swiper-pagination-bullet {
+  opacity: 0.3 !important;
+  background-color: #fff !important;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #fff !important;
+  opacity: 1 !important;
+}
