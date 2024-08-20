@@ -766,8 +766,7 @@
   }
   body.dark-mode #services .cs-title,
   body.dark-mode #services .cs-text,
-  body.dark-mode #services .cs-h3,
-  body.dark-mode #services .cs-item-text {
+  body.dark-mode .blog {
     color: var(--bodyTextColorWhite);
   }
   body.dark-mode #services .cs-text {
@@ -2137,8 +2136,16 @@
     line-height: 1.2em;
     text-align: inherit;
     margin: 0;
-    color: var(--bodyTextColorWhite);
     position: relative;
+    color: var(--bodyTextColorWhite);
+  }
+  #banner-1106 .cs-int-desc {
+    line-height: 1.2em;
+    text-align: center;
+    position: relative;
+    margin: 0 auto;
+    font-weight: 500;
+    color: var(--headerColor);
   }
   #banner-1106 .cs-breadcrumbs {
     display: flex;
@@ -2918,7 +2925,10 @@
   body.dark-mode #steps-1172 .cs-title,
   body.dark-mode #steps-1172 .cs-text,
   body.dark-mode #steps-1172 .cs-item-text,
-  body.dark-mode #steps-1172 .cs-h3 {
+  body.dark-mode #steps-1172 .cs-h3,
+  body.dark-mode #banner-1106 .cs-int-desc,
+  body.dark-mode .blog-main .cs-container a,
+  body.dark-mode .blog-main .blog-desc {
     color: var(--bodyTextColorWhite);
   }
   body.dark-mode #steps-1172 .cs-text,
@@ -2927,6 +2937,12 @@
   }
   body.dark-mode #steps-1172 .cs-graphic {
     opacity: 0.05;
+  }
+  body.dark-mode .blog-main .blog-date {
+    color: #ccc;
+  }
+  body.dark-mode .blog .cs-container h2 {
+    border-left: 8px solid var(--bodyTextColorWhite);
   }
 }
 
@@ -2952,4 +2968,90 @@
   #home.thank-you .cs-title {
     margin: 0 auto 1rem 0;
   }
+}
+
+.blog-main .blog-desc {
+  /* 14px - 16px */
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  line-height: 1.5em;
+  max-width: 28.125rem;
+  margin: 0;
+  padding: 0;
+  color: var(--bodyTextColor);
+}
+
+.blog {
+  padding: var(--sectionPadding);
+}
+
+.blog .cs-container {
+  width: 100%;
+  max-width: 80rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.blog a,
+.blog-main a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.blog a:hover:not(:has(span)),
+.blog-main a:hover {
+  text-decoration: underline;
+}
+
+.blog-date {
+  color: #777;
+  margin-top: -4px;
+  font-size: 0.9rem;
+}
+
+.blog .cs-container h2 {
+  font-size: 1.6rem;
+  border-left: 8px solid black;
+  padding-left: 10px;
+}
+
+.blog .cta-container .cta-btn {
+  font-size: 1rem;
+  /* 46px - 56px */
+  line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+  text-decoration: none;
+  font-weight: 700;
+  margin: 0;
+  color: #fff;
+  padding: 0 1.5rem;
+  background-color: var(--primary);
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+.blog .cta-container .cta-btn:before {
+  content: '';
+  position: absolute;
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: #000;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: width 0.3s;
+}
+.blog .cta-container .cta-btn:hover:before {
+  width: 100%;
+}
+
+.blog .cta-container {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+}
+.blog .cta-container .view-all-posts-btn {
+  margin-left: 2rem;
+  text-decoration: none;
 }
