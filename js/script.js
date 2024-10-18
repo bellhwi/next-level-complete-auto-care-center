@@ -142,3 +142,29 @@ document.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('cs-form-1105').reset()
   }
 })
+
+// Popup handler
+document.addEventListener('DOMContentLoaded', function () {
+  // Check if the popup has been shown in this session
+  if (!sessionStorage.getItem('popupShown')) {
+    // Show the popup
+    document.getElementById('popup').style.display = 'flex'
+  }
+
+  // Get the close button element
+  var closeButton = document.getElementById('popup-close')
+
+  // When the user clicks on the close button, hide the popup and set session storage
+  closeButton.onclick = function () {
+    document.getElementById('popup').style.display = 'none'
+    sessionStorage.setItem('popupShown', 'true')
+  }
+
+  // When the user clicks anywhere outside of the popup, hide it and set session storage
+  window.onclick = function (event) {
+    if (event.target == document.getElementById('popup')) {
+      document.getElementById('popup').style.display = 'none'
+      sessionStorage.setItem('popupShown', 'true')
+    }
+  }
+})
