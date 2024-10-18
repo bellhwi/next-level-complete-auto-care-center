@@ -3107,13 +3107,11 @@
     bottom: 0;
     margin-bottom: 1.2rem;
     margin-left: 1rem;
-    font-size: 0.8rem;
-    /* 46px - 56px */
-    line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+    font-size: 0.7rem;
     text-decoration: none;
     font-weight: 700;
     color: #fff;
-    padding: 0 1rem;
+    padding: 0.4rem 1rem;
     background-color: var(--primary);
     z-index: 1;
   }
@@ -3132,12 +3130,10 @@
     margin-bottom: 2rem;
     margin-left: 2rem;
     font-size: 1rem;
-    /* 46px - 56px */
-    line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+    padding: 0.6rem 1.4rem;
     text-decoration: none;
     font-weight: 700;
     color: #fff;
-    padding: 0 1.5rem;
     background-color: var(--primary);
     z-index: 1;
   }
