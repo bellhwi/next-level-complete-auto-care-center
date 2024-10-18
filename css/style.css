@@ -155,7 +155,7 @@
     box-sizing: border-box;
     background-color: rgba(26, 26, 26, 0.84);
     position: fixed;
-    z-index: 10000;
+    z-index: 1000;
     transition: background-color 0.3s;
   }
   #cs-navigation:before {
@@ -441,7 +441,7 @@
     box-sizing: border-box;
     background-color: rgba(26, 26, 26, 0.84);
     position: fixed;
-    z-index: 10000;
+    z-index: 1000;
   }
   #cs-navigation .cs-top-bar {
     width: 100%;
@@ -3067,7 +3067,7 @@
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
   position: fixed; /* Stay in place */
-  z-index: 1000; /* Sit on top */
+  z-index: 10000; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
