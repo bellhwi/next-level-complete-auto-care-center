@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   }
 })
 
-/*
+
 // Popup handler
 document.addEventListener('DOMContentLoaded', function () {
   // Check if the popup has been shown in this session
@@ -169,4 +169,4 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 })
-*/
+
