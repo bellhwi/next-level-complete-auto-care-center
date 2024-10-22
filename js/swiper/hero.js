@@ -11,5 +11,4 @@ var swiper = new Swiper('.swiper-hero', {
     pauseOnMouseEnter: false,
   },
   loop: true,
-  modules: [Pagination, EffectCoverflow, Autoplay, Loop], // 필요한 모듈만 로드
 })
