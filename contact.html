@@ -15,12 +15,30 @@
 
       gtag('config', 'AW-11193323869')
     </script>
-    <!-- Call Conversion tag  -->
+    <!-- Call & Event Conversion Tag -->
     <script>
+      // 기본 설정 (콜 컨버전)
       gtag('config', 'AW-11193323869/EC_oCMb0wcgZEN2istkp', {
         phone_conversion_number: '+1(865) 350-2700',
       })
+
+      // 통합된 컨버전 트래킹 함수
+      function gtag_report_conversion(url, conversion_id) {
+        var callback = function () {
+          if (typeof url != 'undefined') {
+            window.location = url
+          }
+        }
+
+        gtag('event', 'conversion', {
+          send_to: conversion_id,
+          event_callback: callback,
+        })
+
+        return false
+      }
     </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -250,6 +268,8 @@
                 href="tel:+1-865-350-2700
                   "
                 class="cs-link"
+                onclick='return gtag_report_conversion("tel:+1-865-350-2700", "AW-11193323869/reiWCJ3epJkaEN2istkp")'
+              >
                 >+1(865) 350-2700
               </a>
             </div>
@@ -268,7 +288,11 @@
             </picture>
             <div class="cs-flex-group">
               <span class="cs-header">Email</span>
-              <a href="mailto:info@nextlevelcompleteauto.com" class="cs-link"
+              <a
+                href="mailto:info@nextlevelcompleteauto.com"
+                class="cs-link"
+                onclick='return gtag_report_conversion("mailto:info@nextlevelcompleteauto.com", "AW-11193323869/uOoyCKDepJkaEN2istkp")'
+              >
                 >info@nextlevelcompleteauto.com</a
               >
             </div>
