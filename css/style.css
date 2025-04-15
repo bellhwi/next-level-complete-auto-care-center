@@ -577,6 +577,11 @@
     position: relative;
     transition: color 0.3s;
   }
+
+  #cs-navigation .cs-li-link.contact-link {
+    display: none;
+  }
+
   #cs-navigation .cs-li-link:before {
     content: '';
     width: 0%;
