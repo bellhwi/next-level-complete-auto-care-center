@@ -1,7 +1,7 @@
 const form = document.getElementById('cs-form-1105')
 
 form.addEventListener('submit', async function (e) {
-  e.preventDefault()
+  e.preventDefault() // Prevent browser's default form submission
 
   const data = {
     name: form.name.value,
@@ -23,13 +23,18 @@ form.addEventListener('submit', async function (e) {
     })
 
     if (response.ok) {
-      alert('전송 성공! 곧 연락드릴게요 🙌')
-      form.reset()
+      window.location.href = '/thank-you.html' // ✅ Redirect on success
     } else {
-      alert('전송 실패... 다시 시도해주세요 🙏')
+      alert(
+        "We're sorry, something went wrong while submitting your request. Please try again later."
+      )
     }
   } catch (err) {
-    console.error('Error:', err)
-    alert('에러 발생! 인터넷 연결을 확인해주세요 😥')
+    console.error('Submission Error:', err)
+    alert(
+      'A technical error occurred while processing your request. Please check your internet connection and try again.'
+    )
   }
+
+  return false // Extra safety to prevent default form action
 })
