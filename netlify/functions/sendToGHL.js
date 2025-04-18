@@ -1,5 +1,3 @@
-// File: netlify/functions/sendToGHL.js
-
 export const handler = async (event, context) => {
   if (event.httpMethod !== 'POST') {
     return {
@@ -14,23 +12,14 @@ export const handler = async (event, context) => {
     const GHL_WEBHOOK_URL =
       'https://services.leadconnectorhq.com/hooks/scOtpvRe79XQ8CmYGTul/webhook-trigger/5d9b7e92-0891-4e7b-bc60-75f012a2d3fc'
 
-    // 동의 항목 처리 (체크되면 "on"으로 넘어오므로 true/false로 변환)
-    const consentTransactional = data.consent_transactional === 'on'
-    const consentMarketing = data.consent_marketing === 'on'
-
-    // 메시지, 유입경로 등을 묶어서 Note 형식으로 보냄
-    const note = `
-Message: ${data.message || 'N/A'}
-Referral Source: ${data.referral || 'N/A'}
-Consent - Transactional: ${consentTransactional}
-Consent - Marketing: ${consentMarketing}
-    `.trim()
-
     const payload = {
       firstName: data.name,
       email: data.email,
       phone: data.phone,
-      note: note,
+      message: data.message || '',
+      referral: data.referral || '',
+      consent_marketing:
+        data.consent_marketing === 'on' || data.consent_marketing === true,
     }
 
     const ghlResponse = await fetch(GHL_WEBHOOK_URL, {

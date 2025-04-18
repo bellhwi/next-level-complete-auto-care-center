@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
       phone: form.phone.value,
       message: form.message.value,
       referral: form.referral.value,
-      consent_transactional: form.consent_transactional?.checked || false,
       consent_marketing: form.consent_marketing?.checked || false,
     }
 
