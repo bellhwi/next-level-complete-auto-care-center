@@ -13,7 +13,7 @@ export const handler = async (event, context) => {
 
     // GoHighLevel Webhook URL (당신의 워크플로에서 받은 URL로 교체)
     const GHL_WEBHOOK_URL =
-      'https://services.leadconnectorhq.com/hooks/여기_GHL_webhook_URL'
+      'https://services.leadconnectorhq.com/hooks/scOtpvRe79XQ8CmYGTul/webhook-trigger/5d9b7e92-0891-4e7b-bc60-75f012a2d3fc'
 
     const ghlResponse = await fetch(GHL_WEBHOOK_URL, {
       method: 'POST',
