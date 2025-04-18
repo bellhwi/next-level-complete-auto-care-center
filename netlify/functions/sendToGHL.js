@@ -19,9 +19,7 @@ export const handler = async (event, context) => {
       message: data.message ? `Message: ${data.message}` : '',
       referral: data.referral ? `Referral: ${data.referral}` : '',
       consent_marketing: `Consent Marketing: ${
-        data.consent_marketing === 'on' || data.consent_marketing === true
-          ? 'Yes'
-          : 'No'
+        data.consent_marketing ? 'Yes' : 'No'
       }`,
     }
 
