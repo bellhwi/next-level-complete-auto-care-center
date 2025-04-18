@@ -16,10 +16,13 @@ export const handler = async (event, context) => {
       firstName: data.name,
       email: data.email,
       phone: data.phone,
-      message: data.message || '',
-      referral: data.referral || '',
-      consent_marketing:
-        data.consent_marketing === 'on' || data.consent_marketing === true,
+      message: data.message ? `Message: ${data.message}` : '',
+      referral: data.referral ? `Referral: ${data.referral}` : '',
+      consent_marketing: `Consent Marketing: ${
+        data.consent_marketing === 'on' || data.consent_marketing === true
+          ? 'Yes'
+          : 'No'
+      }`,
     }
 
     const ghlResponse = await fetch(GHL_WEBHOOK_URL, {
