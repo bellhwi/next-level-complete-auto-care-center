@@ -2,41 +2,21 @@
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
+    <!-- gtag.js는 항상 먼저 -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=AW-11193323869"
     ></script>
-    <script>
-      window.dataLayer = window.dataLayer || []
-      function gtag() {
-        dataLayer.push(arguments)
-      }
-      gtag('js', new Date())
 
-      gtag('config', 'AW-11193323869')
-    </script>
+    <!-- 커스텀 설정 파일 -->
+    <script src="/js/gtag-conversion.js" defer></script>
+
     <!-- Call & Event Conversion Tag -->
     <script>
       // 기본 설정 (콜 컨버전)
       gtag('config', 'AW-11193323869/EC_oCMb0wcgZEN2istkp', {
         phone_conversion_number: '+1(865) 350-2700',
       })
-
-      // 통합된 컨버전 트래킹 함수
-      function gtag_report_conversion(url, conversion_id) {
-        var callback = function () {
-          if (typeof url != 'undefined') {
-            window.location = url
-          }
-        }
-
-        gtag('event', 'conversion', {
-          send_to: conversion_id,
-          event_callback: callback,
-        })
-
-        return false
-      }
     </script>
 
     <meta charset="UTF-8" />
@@ -72,26 +52,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=AW-11193323869"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || []
-      function gtag() {
-        dataLayer.push(arguments)
-      }
-      gtag('js', new Date())
-
-      gtag('config', 'AW-11193323869')
-    </script>
-    <!-- Call Conversion tag  -->
-    <script>
-      gtag('config', 'AW-11193323869/EC_oCMb0wcgZEN2istkp', {
-        phone_conversion_number: '+1(865) 350-2700',
-      })
-    </script>
   </head>
   <body>
     <!-- ============================================ -->

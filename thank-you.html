@@ -2,19 +2,15 @@
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
+    <!-- gtag.js는 항상 먼저 -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=AW-11193323869"
     ></script>
-    <script>
-      window.dataLayer = window.dataLayer || []
-      function gtag() {
-        dataLayer.push(arguments)
-      }
-      gtag('js', new Date())
 
-      gtag('config', 'AW-11193323869')
-    </script>
+    <!-- 커스텀 설정 파일 -->
+    <script src="/js/gtag-conversion.js" defer></script>
+
     <!-- Event snippet for Contact Form conversion page -->
     <script>
       gtag('event', 'conversion', {

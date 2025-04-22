@@ -2,25 +2,15 @@
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
+    <!-- gtag.js는 항상 먼저 -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=AW-11193323869"
     ></script>
-    <script>
-      window.dataLayer = window.dataLayer || []
-      function gtag() {
-        dataLayer.push(arguments)
-      }
-      gtag('js', new Date())
 
-      gtag('config', 'AW-11193323869')
-    </script>
-    <!-- Call Conversion tag  -->
-    <script>
-      gtag('config', 'AW-11193323869/EC_oCMb0wcgZEN2istkp', {
-        phone_conversion_number: '+1(865) 350-2700',
-      })
-    </script>
+    <!-- 커스텀 설정 파일 -->
+    <script src="/js/gtag-conversion.js" defer></script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
