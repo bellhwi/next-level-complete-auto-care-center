@@ -16,8 +16,9 @@ export const handler = async (event, context) => {
       firstName: data.name,
       email: data.email,
       phone: data.phone,
-      message: data.message ? `Message: ${data.message}` : '',
-      referral: data.referral ? `Referral: ${data.referral}` : '',
+      message: data.message,
+      referral: data.referral,
+      consent_marketing: data.consent_marketing,
     }
 
     const ghlResponse = await fetch(GHL_WEBHOOK_URL, {
