@@ -2,14 +2,20 @@
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
-    <!-- gtag.js는 항상 먼저 -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=AW-11193323869"
-    ></script>
-
-    <!-- 커스텀 설정 파일 -->
-    <script src="/js/gtag-conversion.js" defer></script>
+    <!-- Google Tag Manager -->
+    <script>
+      ;(function (w, d, s, l, i) {
+        w[l] = w[l] || []
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : ''
+        j.async = true
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+        f.parentNode.insertBefore(j, f)
+      })(window, document, 'script', 'dataLayer', 'GTM-5HGR8BTZ')
+    </script>
+    <!-- End Google Tag Manager -->
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,6 +53,16 @@
   </head>
 
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-5HGR8BTZ"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <!-- ============================================ -->
     <!--                 Navigation                   -->
     <!-- ============================================ -->
@@ -256,7 +272,7 @@
     <!-- ============================================ -->
     <!--                   Mobile Call                -->
     <!-- ============================================ -->
-    <a href="tel:+1-865-350-2700">
+    <a href="tel:+1-865-350-2700" class="conversion-click-phone">
       <section class="mobile-call">
         <img
           class="cs-icon"
@@ -358,7 +374,9 @@
                 d="M763-145q-121-9-229.5-59.5T339-341q-86-86-135.5-194T144-764q-2-21 12.29-36.5Q170.57-816 192-816h136q17 0 29.5 10.5T374-779l24 106q2 13-1.5 25T385-628l-97 98q20 38 46 73t57.97 65.98Q422-361 456-335.5q34 25.5 72 45.5l99-96q8-8 20-11.5t25-1.5l107 23q17 5 27 17.5t10 29.5v136q0 21.43-16 35.71Q784-143 763-145ZM255-600l70-70-17.16-74H218q5 38 14 73.5t23 70.5Zm344 344q35.1 14.24 71.55 22.62Q707-225 744-220v-90l-75-16-70 70ZM255-600Zm344 344Z"
               />
             </svg>
-            <a class="cs-nav-link cs-phone" href="tel:+1-865-350-2700"
+            <a
+              class="cs-nav-link cs-phone conversion-click-phone"
+              href="tel:+1-865-350-2700"
               >+1(865) 350-2700
             </a>
           </li>
@@ -376,7 +394,7 @@
               />
             </svg>
             <a
-              class="cs-nav-link cs-email"
+              class="cs-nav-link cs-email conversion-click-email"
               href="mailto:info@nextlevelcompleteauto.com"
               >info@nextlevelcompleteauto.com
             </a>

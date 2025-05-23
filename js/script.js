@@ -105,32 +105,6 @@ if (document.getElementById('dark-mode-toggle') !== null) {
   })
 }
 
-// // Handle form submission
-// const handleSubmit = (event) => {
-//   event.preventDefault()
-
-//   const myForm = event.target
-//   const formData = new FormData(myForm)
-
-//   fetch('/', {
-//     method: 'POST',
-//     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-//     body: new URLSearchParams(formData).toString(),
-//   })
-//     .then((response) => {
-//       if (response.ok) {
-//         window.location.href = '/thank-you.html' // Redirect in the same tab
-//       } else {
-//         throw new Error('Form submission failed')
-//       }
-//     })
-//     .catch((error) => alert(error))
-// }
-
-// if (document.querySelector('form') !== null) {
-//   document.querySelector('form').addEventListener('submit', handleSubmit)
-// }
-
 // Set the current year in the footer
 document.getElementById('current-year').textContent = new Date().getFullYear()
 
