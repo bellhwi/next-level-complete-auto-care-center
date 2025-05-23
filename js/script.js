@@ -117,8 +117,9 @@ document.addEventListener('DOMContentLoaded', () => {
     sessionStorage.setItem('utm_source', utm_source)
   }
 
-  // 예약 버튼에 UTM 추가
   const storedUtm = sessionStorage.getItem('utm_source')
+
+  // 예약 버튼에 UTM 추가
   const bookingBtns = document.querySelectorAll('.conversion-book-call')
   if (storedUtm) {
     bookingBtns.forEach((btn) => {
@@ -127,6 +128,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const newHref = `${href}${separator}utm_source=${storedUtm}`
       btn.setAttribute('href', newHref)
     })
+
+    // 폼 히든 인풋에 UTM 삽입
+    const utmInput = document.getElementById('utm_source')
+    if (utmInput) {
+      utmInput.value = storedUtm
+    }
   }
 
   // 폼 리셋 (쿼리 파라미터에 clearForm=true 있을 경우)
