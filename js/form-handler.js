@@ -10,30 +10,45 @@ document.addEventListener('DOMContentLoaded', function () {
       phone: form.phone.value,
       message: form.message.value,
       referral: form.referral.value,
-      consent_marketing: form.consent_marketing?.checked || false,
+      consent_marketing: form.consent_marketing?.checked ? 'yes' : 'no',
     }
 
+    // ✅ Step 1: GHL로 전송
     try {
-      const response = await fetch('/.netlify/functions/sendToGHL', {
+      await fetch('/.netlify/functions/sendToGHL', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       })
-
-      if (response.ok) {
-        window.location.href = '/thank-you.html'
-      } else {
-        alert(
-          "We're sorry, something went wrong while submitting your request. Please try again later."
-        )
-      }
     } catch (err) {
-      console.error('Error:', err)
-      alert(
-        'A technical error occurred while processing your request. Please check your internet connection and try again.'
-      )
+      console.error('GHL 전송 오류:', err)
     }
 
-    return false
+    // ✅ Step 2: Netlify 폼 제출 처리
+    const netlifyForm = document.createElement('form')
+    netlifyForm.style.display = 'none'
+    netlifyForm.method = 'POST'
+    netlifyForm.action = '/thank-you.html'
+    netlifyForm.setAttribute('data-netlify', 'true')
+
+    const fields = {
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      message: data.message,
+      referral: data.referral,
+      consent_marketing: data.consent_marketing,
+    }
+
+    for (const key in fields) {
+      const input = document.createElement('input')
+      input.type = 'hidden'
+      input.name = key
+      input.value = fields[key]
+      netlifyForm.appendChild(input)
+    }
+
+    document.body.appendChild(netlifyForm)
+    netlifyForm.submit()
   })
 })
