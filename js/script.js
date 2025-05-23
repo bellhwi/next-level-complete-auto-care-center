@@ -108,11 +108,32 @@ if (document.getElementById('dark-mode-toggle') !== null) {
 // Set the current year in the footer
 document.getElementById('current-year').textContent = new Date().getFullYear()
 
-// Go back to previous page
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', () => {
   const urlParams = new URLSearchParams(window.location.search)
+
+  // UTM 저장
+  const utm_source = urlParams.get('utm_source')
+  if (utm_source) {
+    sessionStorage.setItem('utm_source', utm_source)
+  }
+
+  // 예약 버튼에 UTM 추가
+  const storedUtm = sessionStorage.getItem('utm_source')
+  const bookingBtns = document.querySelectorAll('.conversion-book-call')
+  if (storedUtm) {
+    bookingBtns.forEach((btn) => {
+      const href = btn.getAttribute('href')
+      const separator = href.includes('?') ? '&' : '?'
+      const newHref = `${href}${separator}utm_source=${storedUtm}`
+      btn.setAttribute('href', newHref)
+    })
+  }
+
+  // 폼 리셋 (쿼리 파라미터에 clearForm=true 있을 경우)
   if (urlParams.get('clearForm') === 'true') {
-    // Assuming you have a form with an id of 'contactForm'
-    document.getElementById('cs-form-1105').reset()
+    const form = document.getElementById('cs-form-1105')
+    if (form) {
+      form.reset()
+    }
   }
 })
