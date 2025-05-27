@@ -58,30 +58,11 @@
             <u> please check your junk or spam folder</u>, just in case our
             response ends up there.
           </p>
-          <a href="#" class="cs-button-solid" onclick="goBackAndClearForm()"
-            >GO BACK
-          </a>
+          <a href="index.html" class="cs-button-solid">BACK TO HOME</a>
         </div>
       </div>
     </section>
 
     <script src="js/script.js"></script>
-    <script>
-      function goBackAndClearForm() {
-        // Check if the document.referrer is not empty and is from your site
-        if (
-          document.referrer &&
-          new URL(document.referrer).hostname === window.location.hostname
-        ) {
-          // Navigate back with a special query parameter to signal form clearing
-          const previousPageUrl = new URL(document.referrer)
-          previousPageUrl.searchParams.set('clearForm', 'true')
-          window.location.href = previousPageUrl.href
-        } else {
-          // Fallback if there's no referrer or it's not from the same site
-          window.history.back()
-        }
-      }
-    </script>
   </body>
 </html>

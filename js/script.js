@@ -135,12 +135,4 @@ document.addEventListener('DOMContentLoaded', () => {
       utmInput.value = storedUtm
     }
   }
-
-  // 폼 리셋 (쿼리 파라미터에 clearForm=true 있을 경우)
-  if (urlParams.get('clearForm') === 'true') {
-    const form = document.getElementById('cs-form-1105')
-    if (form) {
-      form.reset()
-    }
-  }
 })
