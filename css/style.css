@@ -2786,7 +2786,6 @@
   }
   #gallery-1086 .cs-picture.finance-picture1 img {
     position: relative;
-    object-fit: contain;
   }
   #gallery-1086 .finance-picture1 {
     grid-column: span 12;
@@ -2849,7 +2848,7 @@
   }
 
   #gallery-1086 .finance-picture1 {
-    grid-column: span 9;
+    grid-column: span 4;
   }
   #gallery-1086 .cs-picture1 {
     grid-column: 1 / span 3;
@@ -3490,4 +3489,10 @@
 .swiper-pagination-horizontal.swiper-pagination-bullets
   .swiper-pagination-bullet {
   margin: 0 8px;
+}
+
+/* Finance banner */
+.finance-banner-snap {
+  width: 100%;
+  margin-top: 1.6rem;
 }
