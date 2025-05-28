@@ -2779,6 +2779,9 @@
     top: 0;
     left: 0;
   }
+  #gallery-1086 .finance-picture1 {
+    grid-column: span 3;
+  }
   #gallery-1086 .cs-picture1 {
     grid-column: 1 / span 6;
     grid-row: span 4;
