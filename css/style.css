@@ -3491,8 +3491,23 @@
   margin: 0 8px;
 }
 
+/*-- -------------------------- -->
+<---           Financing        -->
+<--- -------------------------- -*/
+
+#financing {
+  padding: var(--sectionPadding);
+  position: relative;
+  padding-left: 0rem;
+  padding-right: 0rem;
+}
+
+#financing .cs-container .cs-title {
+  text-align: center;
+  margin: auto;
+}
 /* Finance banner */
 .finance-banner-snap {
   width: 100%;
-  margin-top: 1.6rem;
+  margin-top: 2rem;
 }
