@@ -237,12 +237,12 @@
       <!-- LCP Fallback Image for Faster Paint -->
       <div id="lcp-fallback" style="position: relative; overflow: hidden">
         <img
+          id="hero-lcp"
           src="img/corvette-800.webp"
           alt="corvette"
           width="800"
           height="500"
           sizes="100vw"
-          decoding="async"
           loading="eager"
           fetchpriority="high"
           style="width: 100%; height: auto; display: block"
@@ -285,9 +285,8 @@
                   alt="corvette"
                   width="800"
                   height="500"
-                  decoding="sync"
-                  loading="eager"
-                  fetchpriority="high"
+                  decoding="async"
+                  loading="lazy"
                 />
               </picture>
             </div>
