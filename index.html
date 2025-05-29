@@ -235,7 +235,10 @@
 
     <section id="home">
       <!-- LCP Fallback Image for Faster Paint -->
-      <div id="lcp-fallback" style="position: relative; overflow: hidden">
+      <div
+        id="lcp-fallback"
+        style="position: relative; overflow: hidden; height: 500px"
+      >
         <img
           id="hero-lcp"
           src="img/corvette-800.webp"
@@ -1247,8 +1250,18 @@
         })
 
         // Hide the LCP fallback after Swiper is ready
-        const fallback = document.getElementById('lcp-fallback')
-        if (fallback) fallback.style.display = 'none'
+        if ('PerformanceObserver' in window) {
+          const po = new PerformanceObserver((entryList) => {
+            for (const entry of entryList.getEntries()) {
+              if (entry.element && entry.element.id === 'hero-lcp') {
+                document.getElementById('lcp-fallback')?.remove()
+                po.disconnect()
+              }
+            }
+          })
+
+          po.observe({ type: 'largest-contentful-paint', buffered: true })
+        }
       })
 
       window.onload = function () {
