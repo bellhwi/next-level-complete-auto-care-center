@@ -234,6 +234,21 @@
     <!-- ============================================ -->
 
     <section id="home">
+      <!-- LCP Fallback Image for Faster Paint -->
+      <div id="lcp-fallback" style="position: relative; overflow: hidden">
+        <img
+          src="img/corvette-800.webp"
+          alt="corvette"
+          width="800"
+          height="500"
+          sizes="100vw"
+          decoding="async"
+          loading="eager"
+          fetchpriority="high"
+          style="width: 100%; height: auto; display: block"
+        />
+      </div>
+      <!-- Hero image sliders -->
       <div class="swiper swiper-hero">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
@@ -1137,36 +1152,42 @@
 
     <script src="js/script.js"></script>
     <script>
-      /*! Minimal Swiper v10 Build - Only core + pagination + autoplay + coverflow + loop */
+      /*! Minimal Swiper v10 Build - Only core + pagination + autoplay + loop */
       class Swiper {
         constructor(container, params) {
           this.container = document.querySelector(container)
           this.params = params
           this.init()
         }
+
         init() {
           this.wrapper = this.container.querySelector('.swiper-wrapper')
           this.slides = this.wrapper.children
           this.current = 0
           this.loop = this.params.loop
           this.autoplayDelay = this.params.autoplay?.delay || 5000
+
           if (this.loop) {
             this.wrapper.appendChild(this.slides[0].cloneNode(true))
           }
+
           this.paginationSetup()
           this.slideTo(0)
+
           if (this.params.autoplay) {
             this.startAutoplay()
           }
         }
-        slideTo(i) {
-          if (i >= this.slides.length) i = 0
-          this.current = i
 
-          // Move wrapper
+        slideTo(i) {
+          const realSlidesCount = this.loop
+            ? this.slides.length - 1
+            : this.slides.length
+
+          if (i >= realSlidesCount) i = 0
+          this.current = i
           this.wrapper.style.transform = `translateX(-${i * 100}%)`
 
-          // Update slide classes for CSS coverflow
           Array.from(this.slides).forEach((slide, idx) => {
             slide.classList.toggle('active', idx === i)
           })
@@ -1179,20 +1200,29 @@
             this.slideTo(this.current + 1)
           }, this.autoplayDelay)
         }
+
         paginationSetup() {
           const pag = document.querySelector(this.params.pagination.el)
           if (!pag) return
           pag.innerHTML = ''
           this.bullets = []
-          for (let i = 0; i < this.slides.length; i++) {
+
+          // Fix: count only the original slides
+          const realSlidesCount = this.loop
+            ? this.slides.length - 1
+            : this.slides.length
+
+          for (let i = 0; i < realSlidesCount; i++) {
             const b = document.createElement('span')
             b.className = 'swiper-pagination-bullet'
             b.addEventListener('click', () => this.slideTo(i))
             pag.appendChild(b)
             this.bullets.push(b)
           }
+
           this.updatePagination()
         }
+
         updatePagination() {
           this.bullets?.forEach((b, i) => {
             b.classList.toggle(
@@ -1202,11 +1232,9 @@
           })
         }
       }
-    </script>
 
-    <script>
       document.addEventListener('DOMContentLoaded', function () {
-        const swiper = new Swiper('.swiper-hero', {
+        new Swiper('.swiper-hero', {
           slidesPerView: 1,
           spaceBetween: 10,
           pagination: {
@@ -1215,10 +1243,13 @@
           },
           autoplay: {
             delay: 5000,
-            // pauseOnMouseEnter is removed since it's unsupported
           },
           loop: true,
         })
+
+        // Hide the LCP fallback after Swiper is ready
+        const fallback = document.getElementById('lcp-fallback')
+        if (fallback) fallback.style.display = 'none'
       })
 
       window.onload = function () {
