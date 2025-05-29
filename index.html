@@ -1,21 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google Tag Manager -->
-    <script>
-      ;(function (w, d, s, l, i) {
-        w[l] = w[l] || []
-        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != 'dataLayer' ? '&l=' + l : ''
-        j.async = true
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
-        f.parentNode.insertBefore(j, f)
-      })(window, document, 'script', 'dataLayer', 'GTM-5HGR8BTZ')
-    </script>
-    <!-- End Google Tag Manager -->
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -54,8 +39,64 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/custom.css" />
     <link rel="stylesheet" href="css/dark.css" />
-    <link rel="stylesheet" href="css/swiper/core.css" />
-    <link rel="stylesheet" href="css/swiper/hero.css" />
+    <!-- Swiper -->
+    <style>
+      .swiper {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        max-height: 100vh;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+      }
+
+      .swiper-wrapper {
+        display: flex;
+        transition-property: transform;
+        box-sizing: content-box;
+      }
+
+      .swiper-slide {
+        flex-shrink: 0;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        /* 200px - 300px - leaving extra space for the navigation */
+        padding: clamp(12.5rem, 31.95vw, 18.75rem) 1rem 0;
+        /* 130px - 200px */
+        padding-bottom: clamp(8.125rem, 16.5vw, 12.5rem);
+      }
+
+      .swiper-pagination {
+        position: absolute;
+        text-align: center;
+        transition: 300ms opacity;
+        transform: translate3d(0, 0, 0);
+        z-index: 10;
+        bottom: 1rem;
+        left: 0;
+        width: 100%;
+        margin-bottom: 4rem !important;
+      }
+
+      .swiper-pagination-bullet {
+        width: 0.75rem;
+        height: 0.75rem;
+        display: inline-block;
+        border-radius: 100%;
+        background-color: #fff !important;
+        opacity: 0.3 !important;
+        margin: 0 0.25rem;
+        transition: opacity 0.3s;
+      }
+
+      .swiper-pagination-bullet.swiper-pagination-bullet-active {
+        background-color: #fff !important;
+        opacity: 1 !important;
+      }
+    </style>
+
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -1086,16 +1127,46 @@
     </footer>
 
     <script src="js/script.js"></script>
-    <script defer src="js/swiper/core.js"></script>
-    <script defer src="js/swiper/hero.js"></script>
+    <script src="js/swiper/core.js"></script>
     <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Swiper Initialization
+        new Swiper('.swiper-hero', {
+          slidesPerView: 1,
+          spaceBetween: 10,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          effect: 'coverflow',
+          autoplay: {
+            delay: 5000,
+            pauseOnMouseEnter: false,
+          },
+          loop: true,
+        })
+      })
+
       window.onload = function () {
-        const script = document.createElement('script')
-        script.src = 'https://beta.leadconnectorhq.com/loader.js'
-        script.dataset.resourcesUrl =
+        // Chat Widget Loader
+        const chatScript = document.createElement('script')
+        chatScript.src = 'https://beta.leadconnectorhq.com/loader.js'
+        chatScript.dataset.resourcesUrl =
           'https://beta.leadconnectorhq.com/chat-widget/loader.js'
-        script.dataset.widgetId = '68366035b8f8b50533ea1015'
-        document.body.appendChild(script)
+        chatScript.dataset.widgetId = '68366035b8f8b50533ea1015'
+        document.body.appendChild(chatScript)
+
+        // Google Tag Manager Loader (deferred for LCP optimization)
+        ;(function (w, d, s, l, i) {
+          w[l] = w[l] || []
+          w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
+          const f = d.getElementsByTagName(s)[0]
+          const j = d.createElement(s)
+          const dl = l !== 'dataLayer' ? '&l=' + l : ''
+          j.async = true
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+          f.parentNode.insertBefore(j, f)
+        })(window, document, 'script', 'dataLayer', 'GTM-5HGR8BTZ')
       }
     </script>
   </body>
