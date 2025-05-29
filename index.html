@@ -50,6 +50,12 @@
         z-index: 1;
       }
 
+      .swiper-hero {
+        min-height: 500px;
+        position: relative;
+        z-index: 1;
+      }
+
       .swiper-wrapper {
         display: flex;
         transition: transform 0.5s ease;
@@ -103,6 +109,23 @@
       .swiper-pagination-bullet.swiper-pagination-bullet-active {
         background-color: #fff !important;
         opacity: 1 !important;
+      }
+
+      #lcp-fallback {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        max-height: 100vh;
+        z-index: 0;
+        overflow: hidden;
+        transition: opacity 0.3s ease;
+      }
+
+      #lcp-fallback img {
+        width: 100%;
+        height: auto;
+        display: block;
       }
     </style>
 
@@ -235,10 +258,7 @@
 
     <section id="home">
       <!-- LCP Fallback Image for Faster Paint -->
-      <div
-        id="lcp-fallback"
-        style="position: relative; overflow: hidden; height: 500px"
-      >
+      <div id="lcp-fallback">
         <img
           id="hero-lcp"
           src="img/corvette-800.webp"
@@ -1253,8 +1273,12 @@
         if ('PerformanceObserver' in window) {
           const po = new PerformanceObserver((entryList) => {
             for (const entry of entryList.getEntries()) {
-              if (entry.element && entry.element.id === 'hero-lcp') {
-                document.getElementById('lcp-fallback')?.remove()
+              if (entry.element?.id === 'hero-lcp') {
+                const fallback = document.getElementById('lcp-fallback')
+                if (fallback) {
+                  fallback.style.opacity = '0'
+                  setTimeout(() => fallback.remove(), 500)
+                }
                 po.disconnect()
               }
             }
