@@ -3498,16 +3498,21 @@
 #financing {
   padding: var(--sectionPadding);
   position: relative;
-  padding-left: 0rem;
-  padding-right: 0rem;
 }
-
+#financing .cs-container {
+  width: 100%;
+  max-width: 80rem;
+  margin: auto;
+}
 #financing .cs-container .cs-title {
   text-align: center;
   margin: auto;
 }
+
 /* Finance banner */
 .finance-banner-snap {
   width: 100%;
-  margin-top: 2rem;
+  height: 100%;
+  object-fit: contain;
+  margin-top: clamp(3rem, 6vw, 4rem);
 }

@@ -41,6 +41,14 @@
       crossorigin
     />
 
+    <!-- Preload Hero Image -->
+    <link
+      rel="preload"
+      as="image"
+      href="img/corvette-800.webp"
+      fetchpriority="high"
+    />
+
     <!-- CSS -->
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/style.css" />
@@ -53,13 +61,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
-
-    <!-- GoHighLevel Chat Widget -->
-    <script
-      src="https://beta.leadconnectorhq.com/loader.js"
-      data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
-      data-widget-id="68366035b8f8b50533ea1015"
-    ></script>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -214,12 +215,14 @@
                   srcset="img/corvette.webp 1920w"
                 />
                 <img
+                  src="img/corvette-800.webp"
+                  sizes="100vw"
+                  alt="corvette"
+                  width="800"
+                  height="500"
                   decoding="async"
-                  src="img/corvette-400.webp"
-                  alt="mechanic"
-                  width="400"
-                  height="250"
-                  aria-hidden="true"
+                  loading="eager"
+                  fetchpriority="high"
                 />
               </picture>
             </div>
@@ -254,11 +257,12 @@
                 />
                 <img
                   decoding="async"
-                  src="img/dyno-400.webp"
-                  alt="mechanic"
-                  width="400"
-                  height="250"
-                  aria-hidden="true"
+                  src="img/dyno-800.webp"
+                  alt="dyno"
+                  width="800"
+                  height="450"
+                  sizes="100vw"
+                  loading="lazy"
                 />
               </picture>
             </div>
@@ -293,11 +297,12 @@
                 />
                 <img
                   decoding="async"
-                  src="img/tow-400.webp"
-                  alt="mechanic"
-                  width="400"
-                  height="250"
-                  aria-hidden="true"
+                  src="img/tow-800.webp"
+                  alt="towing truck"
+                  width="800"
+                  height="460"
+                  sizes="100vw"
+                  loading="lazy"
                 />
               </picture>
             </div>
@@ -332,11 +337,12 @@
                 />
                 <img
                   decoding="async"
-                  src="img/auto-repair-400.webp"
-                  alt="mechanic"
-                  width="400"
-                  height="250"
-                  aria-hidden="true"
+                  src="img/auto-repair-800.webp"
+                  alt="auto repair"
+                  width="800"
+                  height="533"
+                  sizes="100vw"
+                  loading="lazy"
                 />
               </picture>
             </div>
@@ -468,9 +474,14 @@
             />
             <!-- Small screen: 기본값 -->
             <img
-              src="/img/financing/snap_finance.png"
+              src="/img/financing/snap_finance.webp"
               alt="Snap Finance - Apply Here"
               class="finance-banner-snap"
+              width="760"
+              height="405"
+              loading="lazy"
+              decoding="async"
+              sizes="100vw"
             />
           </picture>
         </a>
@@ -1077,5 +1088,15 @@
     <script src="js/script.js"></script>
     <script defer src="js/swiper/core.js"></script>
     <script defer src="js/swiper/hero.js"></script>
+    <script>
+      window.onload = function () {
+        const script = document.createElement('script')
+        script.src = 'https://beta.leadconnectorhq.com/loader.js'
+        script.dataset.resourcesUrl =
+          'https://beta.leadconnectorhq.com/chat-widget/loader.js'
+        script.dataset.widgetId = '68366035b8f8b50533ea1015'
+        document.body.appendChild(script)
+      }
+    </script>
   </body>
 </html>

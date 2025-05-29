@@ -38,6 +38,13 @@
       type="font/woff2"
       crossorigin
     />
+    <!-- Preload Hero Image -->
+    <link
+      rel="preload"
+      as="image"
+      href="img/corvette-800.webp"
+      fetchpriority="high"
+    />
     <!-- CSS -->
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/style.css" />
@@ -184,7 +191,7 @@
           <div class="swiper-slide">
             <div class="cs-container">
               <div class="cs-content">
-                <h2 class="cs-title">Trusted Auto Repair Shop Near Me</h2>
+                <h1 class="cs-title">Trusted Auto Repair Shop Near Me</h1>
                 <p class="cs-text">
                   Need an auto repair shop near me? Get fast, expert service
                   from a trusted local auto mechanic team.
@@ -211,12 +218,14 @@
                   srcset="img/corvette.webp 1920w"
                 />
                 <img
+                  src="img/corvette-800.webp"
+                  sizes="100vw"
+                  alt="corvette"
+                  width="800"
+                  height="500"
                   decoding="async"
-                  src="img/corvette-400.webp"
-                  alt="mechanic"
-                  width="400"
-                  height="250"
-                  aria-hidden="true"
+                  loading="eager"
+                  fetchpriority="high"
                 />
               </picture>
             </div>
@@ -253,11 +262,12 @@
                 />
                 <img
                   decoding="async"
-                  src="img/auto-repair-400.webp"
-                  alt="mechanic"
-                  width="400"
-                  height="250"
-                  aria-hidden="true"
+                  src="img/auto-repair-800.webp"
+                  alt="auto-repair"
+                  width="800"
+                  height="533"
+                  sizes="100vw"
+                  loading="lazy"
                 />
               </picture>
             </div>
@@ -292,11 +302,12 @@
                 />
                 <img
                   decoding="async"
-                  src="img/dyno-400.webp"
+                  src="img/dyno-800.webp"
                   alt="mechanic"
-                  width="400"
-                  height="250"
-                  aria-hidden="true"
+                  width="800"
+                  height="450"
+                  sizes="100vw"
+                  loading="lazy"
                 />
               </picture>
             </div>
@@ -331,11 +342,12 @@
                 />
                 <img
                   decoding="async"
-                  src="img/tow-400.webp"
+                  src="img/tow-800.webp"
                   alt="mechanic"
-                  width="400"
-                  height="250"
-                  aria-hidden="true"
+                  width="800"
+                  height="460"
+                  sizes="100vw"
+                  loading="lazy"
                 />
               </picture>
             </div>
@@ -467,7 +479,7 @@
             />
             <!-- Small screen: 기본값 -->
             <img
-              src="/img/financing/snap_finance.png"
+              src="/img/financing/snap_finance.webp"
               alt="Snap Finance - Apply Here"
               class="finance-banner-snap"
             />

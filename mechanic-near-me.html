@@ -38,6 +38,13 @@
       type="font/woff2"
       crossorigin
     />
+    <!-- Preload Hero Image -->
+    <link
+      rel="preload"
+      as="image"
+      href="img/auto-repair-800.webp"
+      fetchpriority="high"
+    />
     <!-- CSS -->
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/style.css" />
@@ -201,23 +208,30 @@
               <picture class="cs-background">
                 <source
                   media="(max-width: 480px)"
-                  srcset="img/auto-repair-400.webp 400w"
+                  srcset="img/auto-repair-400.webp"
                 />
                 <source
                   media="(max-width: 800px)"
-                  srcset="img/auto-repair-800.webp 800w"
+                  srcset="img/auto-repair-800.webp"
                 />
                 <source
                   media="(min-width: 801px)"
-                  srcset="img/auto-repair.webp 1920w"
+                  srcset="img/auto-repair.webp"
                 />
                 <img
-                  decoding="async"
-                  src="img/auto-repair-400.webp"
+                  src="img/auto-repair-800.webp"
+                  srcset="
+                    img/auto-repair-400.webp  400w,
+                    img/auto-repair-800.webp  800w,
+                    img/auto-repair.webp     1920w
+                  "
+                  sizes="100vw"
                   alt="mechanic"
-                  width="400"
-                  height="250"
-                  aria-hidden="true"
+                  width="800"
+                  height="500"
+                  decoding="async"
+                  loading="eager"
+                  fetchpriority="high"
                 />
               </picture>
             </div>
@@ -251,12 +265,13 @@
                   srcset="img/corvette.webp 1920w"
                 />
                 <img
+                  src="img/corvette-800.webp"
+                  sizes="100vw"
+                  alt="corvette"
+                  width="800"
+                  height="500"
                   decoding="async"
-                  src="img/corvette-400.webp"
-                  alt="mechanic"
-                  width="400"
-                  height="250"
-                  aria-hidden="true"
+                  loading="lazy"
                 />
               </picture>
             </div>
@@ -466,7 +481,7 @@
             />
             <!-- Small screen: 기본값 -->
             <img
-              src="/img/financing/snap_finance.png"
+              src="/img/financing/snap_finance.webp"
               alt="Snap Finance - Apply Here"
               class="finance-banner-snap"
             />
