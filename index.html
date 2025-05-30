@@ -1256,7 +1256,7 @@
       }
 
       document.addEventListener('DOMContentLoaded', function () {
-        new Swiper('.swiper-hero', {
+        const swiper = new Swiper('.swiper-hero', {
           slidesPerView: 1,
           spaceBetween: 10,
           pagination: {
@@ -1269,22 +1269,17 @@
           loop: true,
         })
 
-        // Hide the LCP fallback after Swiper is ready
-        if ('PerformanceObserver' in window) {
-          const po = new PerformanceObserver((entryList) => {
-            for (const entry of entryList.getEntries()) {
-              if (entry.element?.id === 'hero-lcp') {
-                const fallback = document.getElementById('lcp-fallback')
-                if (fallback) {
-                  fallback.style.opacity = '0'
-                  setTimeout(() => fallback.remove(), 500)
-                }
-                po.disconnect()
-              }
-            }
-          })
+        const fallback = document.getElementById('lcp-fallback')
 
-          po.observe({ type: 'largest-contentful-paint', buffered: true })
+        // Remove LCP fallback once Swiper initializes and first paint happens
+        if (fallback) {
+          // Optional: fade out first
+          fallback.style.transition = 'opacity 0.4s ease'
+          fallback.style.opacity = '0'
+
+          setTimeout(() => {
+            fallback.remove()
+          }, 400) // Match this to transition duration
         }
       })
 
