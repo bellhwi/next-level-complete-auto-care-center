@@ -1284,14 +1284,6 @@
       })
 
       window.onload = function () {
-        // Chat Widget Loader
-        const chatScript = document.createElement('script')
-        chatScript.src = 'https://beta.leadconnectorhq.com/loader.js'
-        chatScript.dataset.resourcesUrl =
-          'https://beta.leadconnectorhq.com/chat-widget/loader.js'
-        chatScript.dataset.widgetId = '68366035b8f8b50533ea1015'
-        document.body.appendChild(chatScript)
-
         // Google Tag Manager Loader (deferred for LCP optimization)
         ;(function (w, d, s, l, i) {
           w[l] = w[l] || []

@@ -136,3 +136,53 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 })
+
+window.addEventListener('load', function () {
+  const chatScript = document.createElement('script')
+  chatScript.src = 'https://beta.leadconnectorhq.com/loader.js'
+  chatScript.dataset.resourcesUrl =
+    'https://beta.leadconnectorhq.com/chat-widget/loader.js'
+  chatScript.dataset.widgetId = '68366035b8f8b50533ea1015'
+
+  chatScript.onload = () => {
+    const waitForWidget = setInterval(() => {
+      const chatHost = document.querySelector('chat-widget')
+      if (chatHost && chatHost.shadowRoot) {
+        clearInterval(waitForWidget)
+        const outerShadow = chatHost.shadowRoot
+        const widget = outerShadow.querySelector('.lc_text-widget')
+
+        const observer = new MutationObserver(() => {
+          if (widget.classList.contains('lc_text-widget--active')) {
+            // 🔁 Repeatedly check for the nested shadow root and button
+            const waitForSendBtn = setInterval(() => {
+              const widgetBox = outerShadow.querySelector('widget-box')
+              const nestedShadow = widgetBox?.shadowRoot
+
+              const sendBtn = nestedShadow?.getElementById(
+                'lc_text-widget--send-btn'
+              )
+              if (sendBtn && !sendBtn.dataset.tracked) {
+                clearInterval(waitForSendBtn)
+
+                sendBtn.addEventListener('click', () => {
+                  window.dataLayer = window.dataLayer || []
+                  window.dataLayer.push({ event: 'chat_message_sent' })
+                })
+
+                sendBtn.dataset.tracked = 'true'
+              }
+            }, 300)
+          }
+        })
+
+        observer.observe(widget, {
+          attributes: true,
+          attributeFilter: ['class'],
+        })
+      }
+    }, 300)
+  }
+
+  document.body.appendChild(chatScript)
+})
