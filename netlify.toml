@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://nextlevelcompleteauto.com/*"
+  to = "https://nextlevelperformancedyno.com/:splat"
+  status = 301
+  force = true
