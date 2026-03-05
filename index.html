@@ -1,6 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
+    <!-- Google Tag Manager -->
+    <script>
+      ;(function (w, d, s, l, i) {
+        w[l] = w[l] || []
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : ''
+        j.async = true
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+        f.parentNode.insertBefore(j, f)
+      })(window, document, 'script', 'dataLayer', 'GTM-WKX842VC')
+    </script>
+    <!-- End Google Tag Manager -->
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -74,7 +89,9 @@
         transform-origin: center center;
         transform: scale(0.85);
         opacity: 0.4;
-        transition: transform 0.5s ease, opacity 0.5s ease;
+        transition:
+          transform 0.5s ease,
+          opacity 0.5s ease;
       }
 
       .swiper-slide.active {
@@ -134,12 +151,18 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Site verification -->
+    <meta
+      name="google-site-verification"
+      content="bG_ZPzbyQR0o6qZI6Y5Ng3ib2F4826AO7IkdjDEMP-g"
+    />
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript
       ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-5HGR8BTZ"
+        src="https://www.googletagmanager.com/ns.html?id=GTM-WKX842VC"
         height="0"
         width="0"
         style="display: none; visibility: hidden"
@@ -1249,7 +1272,7 @@
           this.bullets?.forEach((b, i) => {
             b.classList.toggle(
               'swiper-pagination-bullet-active',
-              i === this.current
+              i === this.current,
             )
           })
         }
